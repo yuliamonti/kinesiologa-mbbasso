@@ -1,0 +1,445 @@
+/*Globales*/
+:root {
+    --fucsia: #ef57a7;
+    --celeste: #0e96da;
+    --azul: #1a68a7;
+    --gris: #353637;
+    --grisclaro: #fafafa;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    Margin: 0;
+    Padding: 0;
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-size: 16px;
+    color: var(--gris);
+    font-family: 'Montserrat', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+h1 {
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+h2 {
+    font-size: 3rem;
+}
+
+.hero-p {
+    font-size: 2rem;
+}
+#header,
+#tratamientos,
+#patologias,
+#slider,
+#footer {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+} 
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.db {
+    display: block;
+}
+.w-100 {
+    max-width: 100%;
+}
+/*Hero*/
+.header{
+height: clamp(850px, 80rem, 1200px);
+position: relative;
+margin: 0 auto;
+}
+
+.hero-background {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    margin: 2rem 4rem 4rem 4rem;
+}
+
+/*Hero - Menú de Navegación*/
+.navegacion-principal {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+@media (max-width: 768px) {
+    .navegacion-principal {
+        flex-direction: column;
+        align-items:flex-start;
+        opacity: 0;
+        height: 0;
+        visibility: visible;
+        transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear;
+    }
+}
+.navegacion-principal a {
+    color: var(--gris);
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+.navegacion-principal a:hover {
+    font-weight: 600;
+    background-color: var(--rosaclaro);
+}
+@media (min-width: 768px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+.mobile-menu img {
+    width: 4rem;
+}
+.mostrar {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
+
+/*---------------------------------*/
+.btn-contactame {
+    background-color: var(--azul);
+    color: var(--grisclaro);
+    padding: 2rem 4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 2rem;
+    width: auto;
+}
+/*Main------------------------------*/
+.main{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(26,104,167,1) 100%);
+
+}
+/*--Patologías----------------------*/
+.title-patologia {
+    color: var(--grisclaro);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 3rem;
+}
+.dark {
+    color: var(--gris);
+    padding: 3rem;
+}
+
+.container-card{
+	width: 90%;
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+	margin: auto;
+}
+.card{
+/* 	width: 100%; */
+	margin: 20px;
+	border-radius: 6px;
+	background:#fff;
+	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    transition: all 400ms ease;   
+    cursor: default;  
+}
+.card:hover{
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+	transform: translateY(-2%); 
+}
+.card img{
+	width: 100%;
+	height: auto;
+    display: block;
+    margin: auto;
+    padding-top: 2rem;
+}
+
+.card .contenido-card{
+	padding: 15px;
+	text-align: center;
+}
+.card .contenido-card h3{
+	margin-bottom: 15px;
+	color: var(--gris);
+}
+.card .contenido-card p{
+	line-height: 1.8;
+	color: var(--gris);
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+/*Slider imagenes pacientes-------*/
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:30px;
+}
+img{
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.container-all {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.slide {
+    display: flex;
+    transform: translate3d(0,0,0);
+    transition: all 600ms;
+    animation-name: autoplay;
+    animation-duration: 40s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.item-slide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    max-width: 100%;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 20px;
+    left:0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+}
+
+.pagination-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid var(--azul);
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255,255,255,0.5);
+    margin: 0 10px;
+    text-align: center;
+    transition: all 300ms;
+}
+
+.pagination-item:hover {
+    transform: scale(2);
+}
+.pagination-item img {
+    display: inline-block;
+    max-width: none;
+    height: 100%;
+    transform: scale(1);
+    opacity: 0;
+    transition: all 300ms;
+}
+
+.pagination-item:hover img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+input[id="1"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(0,0,0);
+}
+input[id="1"]:checked ~ .pagination .pagination-item[for="1"]{
+    background: #fff;
+}
+input[id="2"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 1),0,0);
+}
+input[id="2"]:checked ~ .pagination .pagination-item[for="2"]{
+    background: #fff;
+}
+input[id="3"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 2),0,0);
+}
+input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
+    background: #fff;
+}
+input[id="4"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 3),0,0);
+}
+input[id="4"]:checked ~ .pagination .pagination-item[for="4"]{
+    background: #fff;
+}
+input[id="5"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 4),0,0);
+}
+input[id="5"]:checked ~ .pagination .pagination-item[for="5"]{
+    background: #fff;
+}
+input[id="6"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 5),0,0);
+}
+input[id="6"]:checked ~ .pagination .pagination-item[for="6"]{
+    background: #fff;
+}
+input[id="7"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 6),0,0);
+}
+input[id="7"]:checked ~ .pagination .pagination-item[for="7"]{
+    background: #fff;
+}
+input[id="8"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 7),0,0);
+}
+input[id="8"]:checked ~ .pagination .pagination-item[for="8"]{
+    background: #fff;
+}
+input[id="9"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 8),0,0);
+}
+input[id="9"]:checked ~ .pagination .pagination-item[for="9"]{
+    background: #fff;
+}
+input[id="10"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 9),0,0);
+}
+input[id="10"]:checked ~ .pagination .pagination-item[for="10"]{
+    background: #fff;
+}
+
+@keyframes autoplay {
+    10%{
+        transform: translate3d(calc(-100% *0),0,0);
+    }
+    20%{
+        transform: translate3d(calc(-100% *1),0,0);
+    }
+    30%{
+        transform: translate3d(calc(-100% *2),0,0);
+    }
+    40%{
+        transform: translate3d(calc(-100% *3),0,0);
+    }
+    50%{
+        transform: translate3d(calc(-100% *4),0,0);
+    }
+    60%{
+        transform: translate3d(calc(-100% *5),0,0);
+    }
+    70%{
+        transform: translate3d(calc(-100% *6),0,0);
+    }
+    80%{
+        transform: translate3d(calc(-100% *7),0,0);
+    }
+    90%{
+        transform: translate3d(calc(-100% *8),0,0);
+    }
+    100%{
+        transform: translate3d(calc(-100% *9),0,0);
+    }
+}
+
+footer {
+    padding: 1rem;
+    background-color: var(--azul);
+    color: var(--grisclaro);
+    text-align: center;
+}
+footer a {
+    color: var(--grisclaro);
+}
+
+@media (max-width: 768px) {
+    .navegacion-principal a {
+        font-size: 95%;
+        padding: 0.5rem;
+    }
+    .btn-contactame {
+        padding: 1.5rem 2rem;
+    }
+    .container-card{
+        width: 90%;
+        display: block;
+    }
+    .slider {
+        display: block;
+    }
+    .card img {
+        width: 35%;
+    }
+    .card:hover{
+        transform: translateY(-1%); 
+    }
+    h1,h2, h3, p {
+        font-size: 95%;
+    }
+    .mbb{
+        margin-top: 0;
+    }
+}
+@media (max-width: 450px) {
+    .header {
+        height: clamp(885px, 80rem, 1200px);
+    }
+    .title-patologia {
+        padding: 0;
+    }
+    .hero-p {
+        font-size: 1.5rem;
+    }
+    .pagination-item {
+        margin: 0 2px;
+    }
+    .card .w {
+        width: 100%;
+    }
+}
+@media (max-width: 450px) {
+    .pagination {
+        flex-wrap: nowrap;
+    }
+}
